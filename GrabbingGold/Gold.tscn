@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://drgi2hhg0bvg0"]
+
+[ext_resource type="Script" path="res://Gold.gd" id="1_36spf"]
+[ext_resource type="Texture2D" uid="uid://bqk6qs62ing7g" path="res://icon.svg" id="1_vo5j2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5p18"]
+size = Vector2(128, 127)
+
+[node name="Gold" type="Area2D" groups=["Gold"]]
+script = ExtResource("1_36spf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_e5p18")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vo5j2")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
