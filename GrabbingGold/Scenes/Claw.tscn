@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dig00ga8se2gh"]
+[gd_scene load_steps=4 format=3 uid="uid://26b0leqnroju"]
 
 [ext_resource type="Texture2D" uid="uid://bqk6qs62ing7g" path="res://icon.svg" id="1_sdrqw"]
-[ext_resource type="Script" path="res://Claw.gd" id="2_vhadh"]
+[ext_resource type="Script" path="res://Scripts/Claw.gd" id="1_xmtlr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tp2p4"]
 size = Vector2(128, 128)
 
 [node name="Claw" type="Area2D"]
-script = ExtResource("2_vhadh")
+script = ExtResource("1_xmtlr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_sdrqw")
