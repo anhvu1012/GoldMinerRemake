@@ -69,3 +69,9 @@ func MoveRope(delta):
 func _on_area_entered(area):
 	if (area.is_in_group("Gold")):
 		print("Found Gold!")
+		$MoneyTimer.start(4.0)
+
+
+func _on_money_timer_timeout():
+	var rng = RandomNumberGenerator.new()
+	Money.money += rng.randi_range(10, 30)
