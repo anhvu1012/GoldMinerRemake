@@ -15,6 +15,8 @@ func _process(_delta):
 		global_position.y = claw.global_position.y + 30
 		print(global_position.y)
 		if global_position.y <= 200:
+			var rng = RandomNumberGenerator.new()
+			Money.money += rng.randi_range(10, 30)
 			queue_free()
 	
 func _on_area_entered(area):
