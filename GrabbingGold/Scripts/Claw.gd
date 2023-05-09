@@ -21,12 +21,14 @@ func _ready():
 	hook_depth = position.y
 	print(position.x," ", position.y)
 	initial_move_speed = hook_drop_speed
-
+	
+	
+	
 func _process(delta):
 	custom_rotate(delta)
 	get_input()
 	MoveRope(delta)
-		
+
 func custom_rotate(delta):
 	if not can_rotate: # if not rotate atm, exist func
 		return
@@ -65,13 +67,7 @@ func MoveRope(delta):
 			set_position(hook_position)
 
 
-# Function checking for collision
+# Functions checking for collision/grabbing
 func _on_area_entered(area):
 	if (area.is_in_group("Gold")):
 		print("Found Gold!")
-		$MoneyTimer.start(4.0)
-
-
-func _on_money_timer_timeout():
-	var rng = RandomNumberGenerator.new()
-	Money.money += rng.randi_range(10, 30)
