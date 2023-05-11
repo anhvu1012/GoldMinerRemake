@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://duncnyjg2yur8"]
+
+[ext_resource type="PackedScene" uid="uid://26b0leqnroju" path="res://Scenes/Claw.tscn" id="1_gu7pm"]
+[ext_resource type="Texture2D" uid="uid://cajms45uuwu5c" path="res://Sprites/BG/Browser Games - Gold Miner - Backgrounds - Kopie (2).png" id="1_hhjmt"]
+[ext_resource type="PackedScene" uid="uid://bpmtu1yhrx5il" path="res://Scenes/Gold.tscn" id="2_pu6fq"]
+
+[node name="Main2D" type="Node2D"]
+
+[node name="BG" type="TextureRect" parent="."]
+visible = false
+offset_right = 1155.0
+offset_bottom = 649.0
+texture = ExtResource("1_hhjmt")
+
+[node name="Claw" parent="." instance=ExtResource("1_gu7pm")]
+position = Vector2(550, 149)
+scale = Vector2(0.59, 0.51)
+
+[node name="Gold" parent="." instance=ExtResource("2_pu6fq")]
+position = Vector2(176, 526)
+scale = Vector2(0.4, 0.4)
+
+[node name="Gold2" parent="." instance=ExtResource("2_pu6fq")]
+position = Vector2(548, 528)
+scale = Vector2(0.6, 0.6)
+
+[node name="Gold3" parent="." instance=ExtResource("2_pu6fq")]
+position = Vector2(945, 525)
+scale = Vector2(0.5, 0.5)
+
+[node name="Gold4" parent="." instance=ExtResource("2_pu6fq")]
+position = Vector2(767, 386)
+scale = Vector2(0.9, 0.9)
