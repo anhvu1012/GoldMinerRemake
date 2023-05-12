@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpmtu1yhrx5il"]
+
+[ext_resource type="Script" path="res://Scripts/Gold.gd" id="1_22su7"]
+[ext_resource type="Texture2D" uid="uid://bnxm8kokelleg" path="res://Sprites/Item/Large Gold.png" id="2_7ppb3"]
+
+[node name="Large Gold" type="Area2D" groups=["Gold"]]
+script = ExtResource("1_22su7")
+
+[node name="Large Gold" type="Sprite2D" parent="."]
+position = Vector2(-2.98023e-08, 0)
+scale = Vector2(0.143341, 0.144307)
+texture = ExtResource("2_7ppb3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-2.98023e-08, 0)
+scale = Vector2(0.143341, 0.144307)
+polygon = PackedVector2Array(105, -201.3, 105, -200.1, 128, -185.1, 128, -183.9, 166, -149.9, 166, -147.5, 173, -133.5, 173, -129, 173.7, -125, 180.6, -125, 233, -93.1, 233, -91.9, 250, -75.8, 250, 22.3, 247.5, 31, 246.1, 31, 226, 62.6, 226, 64.5, 207.2, 101, 205.9, 101, 166.8, 137, 164.6, 137, 92.6, 184, 90.5, 184, 50.9, 207, 8.60001, 207, -51, 198.7, -51, 197.5, -103, 181.5, -103, 180.4, -165, 155.4, -165, 153.7, -194, 121.8, -194, 119.7, -233, 69, -233.8, 69, -250, 53.8, -250, 19.1, -249.7, 17, -247.9, 17, -240.9, 9, -238.6, 9, -198, -18.1, -198, -20.6, -208, -74.8, -208, -89.3, -205.4, -97, -203.9, -97, -180.9, -122, -178.7, -122, -146.8, -151, -144.4, -151, -92.4, -171, -88.1, -171, 48.1, -207, 91.7, -207)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
