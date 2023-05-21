@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4ilv3c82x7gj"]
+
+[ext_resource type="Texture2D" uid="uid://6tuhyaqnwac7" path="res://Sprites/Item/Normal Gold.png" id="1_hexj6"]
+[ext_resource type="Script" path="res://Scripts/NormalGold.gd" id="1_vorjb"]
+
+[node name="Normal Gold" type="Area2D" groups=["Gold"]]
+script = ExtResource("1_vorjb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hexj6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(21, -12.2, 21, 13.5, 16.6, 18.5, -14, 18.5, -21, 12.2, -21, -11.5, -14, -18.3, 14, -18.5)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
