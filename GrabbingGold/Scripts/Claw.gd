@@ -1,73 +1,75 @@
 extends Area2D
 
-# claw variables
-@export var claw_rotate_speed = 50
-var claw_direction = 1
-@export var claw_range = 65
-var claw_rotate_angle = 0
-var can_rotate = true
-
 # hook variables
 # useful when picked up different objects with different weights
 var initial_move_speed 
-@export var hook_max_depth = 500
-var hook_depth = 0
+var claw_max_depth = 550
+var hook_depth
 var hook_direction = 1
-@export var hook_drop_speed = 200
+@export var hook_drop_speed = 500
+var rope_position
 var hook_move_down = false
+var hook_move_up = false
+var pulled_gold = false
+
+var claw_position 
+
+@onready var rope = get_parent().get_parent().get_node("Rope")
+
+signal hook_move_down_status(is_moving_down: bool)
 
 # called when start
 func _ready():
-	hook_depth = position.y
-	print(position.x," ", position.y)
+	rope_position = rope.position
+	#print(rope_position)
 	initial_move_speed = hook_drop_speed
-	
-	
-	
+	hook_depth = rope.position.y
+	#print(hook_depth)
+
 func _process(delta):
-	custom_rotate(delta)
-	get_input()
-	MoveRope(delta)
-
-func custom_rotate(delta):
-	if not can_rotate: # if not rotate atm, exist func
-		return
-
-	claw_rotate_angle += claw_direction * claw_rotate_speed * delta
-	if abs(claw_rotate_angle) > claw_range:
-		claw_direction *= -1
-	# rotate by rotate_angle on z axis
-	set_rotation_degrees(claw_rotate_angle)
-
-# check if down arrow pressed => stop rotating, start moving down
-func get_input(): 
-	if Input.is_action_just_pressed("ui_down") and can_rotate and not hook_move_down:
-		can_rotate = false
-		hook_move_down = true
-		hook_direction = 1
-		print("down")
+	claw_position = Vector2(position.x, position.y)
+	check_InPut()
+	if hook_move_down:
+		move_Rope_Down(delta)
+	check_Claw_out_of_Bound()
 	
-func MoveRope(delta):
-	if can_rotate: # if rotating, exist func
-		return
+	if not hook_move_down and hook_move_up:
+		move_Rope_Up(delta)
 
-	if !can_rotate: 
-		var hook_position = position
+	check_Reach_the_Ground()
+	
+func check_InPut():
+	if Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_accept"):
+		hook_move_down = true
+		hook_move_down_status.emit(hook_move_down)
+		
+func move_Rope_Down(delta):
+	claw_position += transform.y * hook_direction * hook_drop_speed * delta
+	set_position(claw_position)
 
-		if hook_move_down:
-			hook_position += transform.y * hook_direction * hook_drop_speed * delta
-			
-			if hook_position.y >= hook_max_depth:
-				hook_direction *= -1
-				
-			if hook_position.y <= hook_depth:
-				hook_move_down = false
-				can_rotate = true
-				hook_drop_speed = initial_move_speed
-			set_position(hook_position)
+func check_Claw_out_of_Bound():
+	#print(claw_position)
+	if claw_position.y >= claw_max_depth:
+		print("reached the ground")
+		hook_move_down = false
+		hook_move_up = true
 
-
-# Functions checking for collision/grabbing
+func move_Rope_Up(delta):
+	claw_position -= transform.y * hook_direction * hook_drop_speed * delta
+	set_position(claw_position)
+	
+func check_Reach_the_Ground():
+	#print(claw_position)
+	if claw_position.y <= 0:
+		hook_move_up = false
+		$CollisionShape2D.set_deferred("disabled", false)
+		hook_move_down_status.emit(hook_move_down) # now start rotate again
+		
+# Function checking for collision
 func _on_area_entered(area):
 	if (area.is_in_group("Gold")):
+		hook_move_down = false
+		hook_move_up = true
+		# Disabling collision while pulling
+		$CollisionShape2D.set_deferred("disabled", true)
 		print("Found Gold!")
