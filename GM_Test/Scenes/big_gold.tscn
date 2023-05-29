@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1x2ujuk78fm6"]
+
+[ext_resource type="Script" path="res://Scripts/BigGold.gd" id="1_7sq7n"]
+[ext_resource type="Texture2D" uid="uid://c3c0nwpvod5rq" path="res://Sprites/Item/Big Gold.png" id="2_y7pew"]
+[ext_resource type="AudioStream" uid="uid://dpvlvntdjbf40" path="res://Sounds/received.mp3" id="3_mjwb7"]
+
+[node name="Big Gold" type="Area2D" groups=["Gold"]]
+script = ExtResource("1_7sq7n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_y7pew")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(29, -25.9, 29, -23.3, 32, -16.2, 32, 15.1, 29.4, 22, 27.9, 22, 19.7, 31, -19.8, 31, -32, 18.8, -32, -18.8, -24.8, -26, -22.5, -26, -12.6, -31, 23, -31)
+
+[node name="ReceivedGold" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mjwb7")
+volume_db = 1.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
