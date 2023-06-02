@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var claw_rotate_speed = 100
+@export var claw_rotate_speed = 90
 var claw_direction = 1
 @export var claw_range = 70
 var claw_rotate_angle = 0

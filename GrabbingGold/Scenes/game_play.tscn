@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ba4ka8f8dsfvu"]
+[gd_scene load_steps=11 format=3 uid="uid://ba4ka8f8dsfvu"]
 
 [ext_resource type="Texture2D" uid="uid://dyw0opn1wokep" path="res://Sprites/BG/Gold Miner - Backgrounds.png" id="1_cl3ck"]
 [ext_resource type="Texture2D" uid="uid://d34tbfjaje0fg" path="res://Sprites/clawbody.png" id="2_3pdn5"]
 [ext_resource type="Script" path="res://Scripts/MoneyCount.gd" id="2_akmso"]
+[ext_resource type="Texture2D" uid="uid://d1j51b7p1urna" path="res://Sprites/Character.png" id="3_c1iwv"]
 [ext_resource type="PackedScene" uid="uid://djmjynnpljydo" path="res://Scenes/claw.tscn" id="3_hfe5x"]
 [ext_resource type="PackedScene" uid="uid://pd3hwwbtnkr5" path="res://Scenes/rope.tscn" id="4_ogfoj"]
 [ext_resource type="Script" path="res://Scripts/LineRope.gd" id="5_d78vb"]
@@ -22,6 +23,11 @@ offset_right = 215.0
 offset_bottom = 84.0
 script = ExtResource("2_akmso")
 
+[node name="Character" type="Sprite2D" parent="."]
+position = Vector2(627, 127)
+scale = Vector2(1.26364, 1.34615)
+texture = ExtResource("3_c1iwv")
+
 [node name="Clawbody" type="Sprite2D" parent="."]
 position = Vector2(593, 157)
 texture = ExtResource("2_3pdn5")
@@ -30,15 +36,15 @@ texture = ExtResource("2_3pdn5")
 position = Vector2(575, 162)
 scale = Vector2(1, 1.23914)
 
-[node name="Claw" parent="Rope" instance=ExtResource("3_hfe5x")]
-scale = Vector2(1, 0.832062)
-
 [node name="Line2D" type="Line2D" parent="Rope" node_paths=PackedStringArray("first_target", "second_target")]
 width = 4.5
 default_color = Color(0.321569, 0.290196, 0.388235, 1)
 script = ExtResource("5_d78vb")
 first_target = NodePath("..")
 second_target = NodePath("../Claw")
+
+[node name="Claw" parent="Rope" instance=ExtResource("3_hfe5x")]
+scale = Vector2(1, 0.832062)
 
 [node name="Big Gold" parent="." instance=ExtResource("7_1mdmn")]
 position = Vector2(166, 343)

@@ -5,10 +5,12 @@ var claw
 
 @export var value_largeGold = 1000
 
+@onready var receivedGold = $ReceivedGold
+
 func _process(_delta):
 	if move_gold:
-		# --- Adjust position for Gold on the Left
 		if claw.global_rotation >= 0.5:
+			#print("left")
 			global_position.x = claw.global_position.x - 30
 			global_position.y = claw.global_position.y + 30
 			
@@ -23,12 +25,17 @@ func _process(_delta):
 			global_position.y = claw.global_position.y + 40
 		
 		if global_position.y <= 210:
+			move_gold = false
 			GameManager.money += value_largeGold
-			$CollisionPolygon2D.set_deferred("disabled", false)
+			#$CollisionPolygon2D.set_deferred("disabled", false)
+			$Sprite2D.visible = false
+			receivedGold.play()
+			# Stop script until sound is completed
+			await $ReceivedGold.finished
+			
 			queue_free()
 
 func _on_area_entered(area):
 	move_gold = true
 	claw = area
-	# Disabling collision while pulling
 	$CollisionPolygon2D.set_deferred("disabled", true)

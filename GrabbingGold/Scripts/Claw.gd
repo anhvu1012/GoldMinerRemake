@@ -6,7 +6,7 @@ var initial_move_speed
 var claw_max_depth = 550
 var hook_depth
 var hook_direction = 1
-@export var hook_drop_speed = 500
+@export var hook_drop_speed = 400
 var rope_position
 var hook_move_down = false
 var hook_move_up = false
@@ -15,6 +15,7 @@ var pulled_gold = false
 var claw_position 
 
 @onready var rope = get_parent().get_parent().get_node("Rope")
+@onready var foundGold = $found_gold_sound
 
 signal hook_move_down_status(is_moving_down: bool)
 
@@ -61,8 +62,8 @@ func move_Rope_Up(delta):
 func check_Reach_the_Ground():
 	#print(claw_position)
 	if claw_position.y <= 0:
-		hook_move_up = false
 		$CollisionShape2D.set_deferred("disabled", false)
+		hook_move_up = false
 		hook_move_down_status.emit(hook_move_down) # now start rotate again
 		
 # Function checking for collision
@@ -70,6 +71,6 @@ func _on_area_entered(area):
 	if (area.is_in_group("Gold")):
 		hook_move_down = false
 		hook_move_up = true
-		# Disabling collision while pulling
 		$CollisionShape2D.set_deferred("disabled", true)
+		foundGold.play()
 		print("Found Gold!")

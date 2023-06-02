@@ -18,3 +18,4 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Scripts/GameManager.gd"
+BgMusic="*res://Scenes/bg_music.tscn"

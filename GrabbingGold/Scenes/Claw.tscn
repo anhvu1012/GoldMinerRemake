@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://djmjynnpljydo"]
+[gd_scene load_steps=5 format=3 uid="uid://djmjynnpljydo"]
 
 [ext_resource type="Script" path="res://Scripts/claw.gd" id="1_foqmr"]
 [ext_resource type="Texture2D" uid="uid://cdkmsv4502lgi" path="res://Sprites/claw.png" id="2_ssw8o"]
+[ext_resource type="AudioStream" uid="uid://chu6ug5elujcp" path="res://Sounds/FoundGold.wav" id="3_8utfh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_svtk8"]
 radius = 12.0
@@ -17,5 +18,9 @@ offset = Vector2(-1.66667, 50)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 18)
 shape = SubResource("CircleShape2D_svtk8")
+
+[node name="found_gold_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8utfh")
+pitch_scale = 1.5
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
