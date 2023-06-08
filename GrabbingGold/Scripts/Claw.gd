@@ -6,7 +6,7 @@ var initial_move_speed
 var claw_max_depth = 550
 var hook_depth
 var hook_direction = 1
-@export var hook_drop_speed = 400
+@export var hook_drop_speed = 500
 var rope_position
 var hook_move_down = false
 var hook_move_up = false
@@ -74,3 +74,7 @@ func _on_area_entered(area):
 		$CollisionShape2D.set_deferred("disabled", true)
 		foundGold.play()
 		print("Found Gold!")
+		
+	elif (area.is_in_group("TNT")):
+		hook_move_down = false
+		hook_move_up = true

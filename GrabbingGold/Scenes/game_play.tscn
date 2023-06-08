@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ba4ka8f8dsfvu"]
+[gd_scene load_steps=12 format=3 uid="uid://ba4ka8f8dsfvu"]
 
 [ext_resource type="Texture2D" uid="uid://dyw0opn1wokep" path="res://Sprites/BG/Gold Miner - Backgrounds.png" id="1_cl3ck"]
 [ext_resource type="Texture2D" uid="uid://d34tbfjaje0fg" path="res://Sprites/clawbody.png" id="2_3pdn5"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b1x2ujuk78fm6" path="res://Scenes/big_gold.tscn" id="7_1mdmn"]
 [ext_resource type="PackedScene" uid="uid://b4ilv3c82x7gj" path="res://Scenes/normal_gold.tscn" id="8_i354f"]
 [ext_resource type="PackedScene" uid="uid://djfdkrpcwqolq" path="res://Scenes/small_gold.tscn" id="9_6davh"]
+[ext_resource type="PackedScene" uid="uid://dni1ajlkfdevr" path="res://Scenes/tnt.tscn" id="11_gkwuo"]
 
 [node name="GamePlay" type="Node2D"]
 
@@ -90,5 +91,10 @@ position = Vector2(428, 387)
 
 [node name="Small Gold5" parent="." instance=ExtResource("9_6davh")]
 position = Vector2(388, 289)
+
+[node name="TNTs" type="Node2D" parent="."]
+
+[node name="TNT" parent="TNTs" instance=ExtResource("11_gkwuo")]
+position = Vector2(580, 421)
 
 [connection signal="hook_move_down_status" from="Rope/Claw" to="Rope" method="_on_claw_hook_move_down_status"]

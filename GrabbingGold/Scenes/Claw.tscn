@@ -7,10 +7,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_svtk8"]
 radius = 12.0
 
-[node name="Claw" type="Area2D"]
+[node name="Claw" type="Area2D" groups=["Claw"]]
 script = ExtResource("1_foqmr")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.264631)
 texture = ExtResource("2_ssw8o")
 offset = Vector2(-1.66667, 50)

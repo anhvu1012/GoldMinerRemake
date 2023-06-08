@@ -36,7 +36,11 @@ func _process(_delta):
 			queue_free()
 
 func _on_area_entered(area):
-	move_gold = true
-	claw = area
-	$CollisionPolygon2D.set_deferred("disabled", true)
-
+	if (area.is_in_group("Claw")):
+		move_gold = true
+		claw = area
+		$CollisionPolygon2D.set_deferred("disabled", true)
+		
+	elif (area.is_in_group("TNT_Explosion")):
+		print("Gold Explode")
+		queue_free()
