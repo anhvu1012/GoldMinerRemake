@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6a6xb5litejp"]
-
-[ext_resource type="AudioStream" uid="uid://cd2hjr5da2fxq" path="res://Sounds/Background_Loop.mp3" id="1_mck78"]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
-stream = ExtResource("1_mck78")
-autoplay = true
