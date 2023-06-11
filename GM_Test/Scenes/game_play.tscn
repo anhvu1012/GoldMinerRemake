@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://ba4ka8f8dsfvu"]
+
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_5r16h"]
+[ext_resource type="PackedScene" uid="uid://di26p5jfwxb30" path="res://Scenes/level_1.tscn" id="2_i51ge"]
+[ext_resource type="FontFile" uid="uid://dgsdwbgcyr2gf" path="res://dogicapixelbold.ttf" id="3_w6k23"]
+[ext_resource type="PackedScene" uid="uid://dsg2aw8fjkk87" path="res://Scenes/pause_menu.tscn" id="4_11ats"]
+[ext_resource type="StyleBox" uid="uid://b8cjswdjawi40" path="res://Styling/button.tres" id="4_jqsct"]
+[ext_resource type="StyleBox" uid="uid://2l7nww6tbl2g" path="res://Styling/buttonPressed.tres" id="5_whm7d"]
+[ext_resource type="Script" path="res://Scripts/MoneyCount.gd" id="7_xl42o"]
+[ext_resource type="Script" path="res://Scripts/CountdownTimer.gd" id="8_cxcxu"]
+[ext_resource type="Script" path="res://Scripts/LevelSetting.gd" id="9_fehjw"]
+[ext_resource type="Script" path="res://Scripts/GoalSetting.gd" id="9_jbo83"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_5r16h")
+
+[node name="Level 1" parent="." instance=ExtResource("2_i51ge")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause" type="Button" parent="CanvasLayer"]
+offset_left = 1046.0
+offset_top = 19.0
+offset_right = 1126.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("3_w6k23")
+theme_override_font_sizes/font_size = 0
+theme_override_styles/normal = ExtResource("4_jqsct")
+theme_override_styles/hover = ExtResource("4_jqsct")
+theme_override_styles/pressed = ExtResource("5_whm7d")
+theme_override_styles/focus = ExtResource("4_jqsct")
+text = "PAUSE"
+
+[node name="Pause_Menu" parent="CanvasLayer" instance=ExtResource("4_11ats")]
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainerLeft" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 136.0
+offset_top = 51.0
+offset_right = 176.0
+offset_bottom = 91.0
+
+[node name="MoneyLabel" type="Label" parent="CanvasLayer/VBoxContainerLeft"]
+self_modulate = Color(0.239216, 0.2, 0.2, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_w6k23")
+script = ExtResource("7_xl42o")
+metadata/_edit_use_anchors_ = true
+
+[node name="Goal" type="Label" parent="CanvasLayer/VBoxContainerLeft"]
+self_modulate = Color(0.239216, 0.2, 0.2, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_w6k23")
+script = ExtResource("9_jbo83")
+
+[node name="VBoxContainerRight" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 786.0
+offset_top = 40.0
+offset_right = 826.0
+offset_bottom = 80.0
+
+[node name="Level" type="Label" parent="CanvasLayer/VBoxContainerRight"]
+self_modulate = Color(0.239216, 0.2, 0.2, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_w6k23")
+script = ExtResource("9_fehjw")
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainerRight"]
+layout_mode = 2
+script = ExtResource("8_cxcxu")
+metadata/_edit_use_anchors_ = true
+
+[node name="CountDownTimer" type="Label" parent="CanvasLayer/VBoxContainerRight/Control"]
+self_modulate = Color(0.239216, 0.2, 0.2, 1)
+layout_mode = 2
+offset_top = 4.0
+offset_right = 40.0
+offset_bottom = 16.0
+theme_override_fonts/font = ExtResource("3_w6k23")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/VBoxContainerRight/Control"]
+wait_time = 60.0
+
+[connection signal="toggle_game_paused" from="." to="CanvasLayer/Pause_Menu" method="_on_game_manager_toggle_game_paused"]
+[connection signal="pressed" from="CanvasLayer/Pause" to="." method="_on_pause_pressed"]
+[connection signal="timeout" from="CanvasLayer/VBoxContainerRight/Control/Timer" to="CanvasLayer/VBoxContainerRight/Control" method="_on_timer_timeout"]
