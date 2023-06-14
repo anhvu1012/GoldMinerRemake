@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/NormalGold.gd" id="1_vorjb"]
 [ext_resource type="AudioStream" uid="uid://dpvlvntdjbf40" path="res://Sounds/received.mp3" id="3_uc2df"]
 
-[node name="Normal Gold" type="Area2D" groups=["Gold"]]
+[node name="Normal Gold" type="Area2D" groups=["Normal_Gold"]]
 script = ExtResource("1_vorjb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cbqn0uc3mvm6h" path="res://Sprites/Item/Small Gold.png" id="1_m2amw"]
 [ext_resource type="AudioStream" uid="uid://dpvlvntdjbf40" path="res://Sounds/received.mp3" id="3_bjrsy"]
 
-[node name="Small Gold" type="Area2D" groups=["Gold"]]
+[node name="Small Gold" type="Area2D" groups=["Small_Gold"]]
 script = ExtResource("1_7t3v3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

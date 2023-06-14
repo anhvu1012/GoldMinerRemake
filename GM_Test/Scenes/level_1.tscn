@@ -1,0 +1,109 @@
+[gd_scene load_steps=13 format=3 uid="uid://di26p5jfwxb30"]
+
+[ext_resource type="Texture2D" uid="uid://dyw0opn1wokep" path="res://Sprites/BG/Gold Miner - Backgrounds.png" id="1_v3qv2"]
+[ext_resource type="Texture2D" uid="uid://d1j51b7p1urna" path="res://Sprites/Character.png" id="5_iwx55"]
+[ext_resource type="Texture2D" uid="uid://d34tbfjaje0fg" path="res://Sprites/clawbody.png" id="6_bvs0a"]
+[ext_resource type="PackedScene" uid="uid://pd3hwwbtnkr5" path="res://Scenes/rope.tscn" id="7_bf4gi"]
+[ext_resource type="Script" path="res://Scripts/LineRope.gd" id="8_ltsal"]
+[ext_resource type="PackedScene" uid="uid://djmjynnpljydo" path="res://Scenes/claw.tscn" id="9_iuth2"]
+[ext_resource type="PackedScene" uid="uid://b1x2ujuk78fm6" path="res://Scenes/big_gold.tscn" id="10_ch4vu"]
+[ext_resource type="PackedScene" uid="uid://b4ilv3c82x7gj" path="res://Scenes/normal_gold.tscn" id="11_0nkuq"]
+[ext_resource type="PackedScene" uid="uid://crwi1o1sjv1p8" path="res://Scenes/stone.tscn" id="11_s6faa"]
+[ext_resource type="PackedScene" uid="uid://bm8lt2b434k4m" path="res://Scenes/diamond.tscn" id="12_ok108"]
+[ext_resource type="PackedScene" uid="uid://djfdkrpcwqolq" path="res://Scenes/small_gold.tscn" id="12_q60qn"]
+[ext_resource type="PackedScene" uid="uid://dni1ajlkfdevr" path="res://Scenes/tnt.tscn" id="13_5aanf"]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(580, 324)
+scale = Vector2(2.08633, 1.91716)
+texture = ExtResource("1_v3qv2")
+
+[node name="Character" type="Sprite2D" parent="."]
+position = Vector2(627, 127)
+scale = Vector2(1.26364, 1.34615)
+texture = ExtResource("5_iwx55")
+
+[node name="Clawbody" type="Sprite2D" parent="."]
+position = Vector2(593, 157)
+texture = ExtResource("6_bvs0a")
+
+[node name="Rope" parent="." instance=ExtResource("7_bf4gi")]
+position = Vector2(575, 162)
+scale = Vector2(1, 1.23914)
+
+[node name="Line2D" type="Line2D" parent="Rope" node_paths=PackedStringArray("first_target", "second_target")]
+width = 4.5
+default_color = Color(0.321569, 0.290196, 0.388235, 1)
+script = ExtResource("8_ltsal")
+first_target = NodePath("..")
+second_target = NodePath("../Claw")
+
+[node name="Claw" parent="Rope" groups=["Claw"] instance=ExtResource("9_iuth2")]
+scale = Vector2(1, 0.832062)
+
+[node name="Big Gold" parent="." instance=ExtResource("10_ch4vu")]
+position = Vector2(166, 343)
+
+[node name="Big Gold2" parent="." instance=ExtResource("10_ch4vu")]
+position = Vector2(904, 558)
+
+[node name="Big Gold3" parent="." instance=ExtResource("10_ch4vu")]
+position = Vector2(884, 404)
+
+[node name="Big Gold4" parent="." instance=ExtResource("10_ch4vu")]
+position = Vector2(979, 344)
+
+[node name="Big Gold5" parent="." instance=ExtResource("10_ch4vu")]
+position = Vector2(276, 501)
+
+[node name="Big Gold6" parent="." instance=ExtResource("10_ch4vu")]
+position = Vector2(147, 544)
+
+[node name="Normal Gold" parent="." instance=ExtResource("11_0nkuq")]
+position = Vector2(985, 513)
+
+[node name="Normal Gold2" parent="." instance=ExtResource("11_0nkuq")]
+position = Vector2(474, 421)
+
+[node name="Normal Gold3" parent="." instance=ExtResource("11_0nkuq")]
+position = Vector2(680, 347)
+
+[node name="Normal Gold4" parent="." instance=ExtResource("11_0nkuq")]
+position = Vector2(652, 587)
+
+[node name="Small Gold" parent="." instance=ExtResource("12_q60qn")]
+position = Vector2(199, 452)
+
+[node name="Small Gold2" parent="." instance=ExtResource("12_q60qn")]
+position = Vector2(718, 545)
+
+[node name="Small Gold3" parent="." instance=ExtResource("12_q60qn")]
+position = Vector2(345, 574)
+
+[node name="Small Gold4" parent="." instance=ExtResource("12_q60qn")]
+position = Vector2(428, 387)
+
+[node name="Small Gold5" parent="." instance=ExtResource("12_q60qn")]
+position = Vector2(388, 289)
+
+[node name="TNTs" type="Node2D" parent="."]
+
+[node name="TNT" parent="TNTs" instance=ExtResource("13_5aanf")]
+position = Vector2(552, 418)
+
+[node name="Stones" type="Node2D" parent="."]
+
+[node name="Stone" parent="Stones" instance=ExtResource("11_s6faa")]
+position = Vector2(309, 382)
+
+[node name="Diamonds" type="Node2D" parent="."]
+
+[node name="Diamond" parent="Diamonds" instance=ExtResource("12_ok108")]
+position = Vector2(233, 567)
+
+[node name="Diamond2" parent="Diamonds" instance=ExtResource("12_ok108")]
+position = Vector2(796, 540)
+
+[connection signal="hook_move_down_status" from="Rope/Claw" to="Rope" method="_on_claw_hook_move_down_status"]

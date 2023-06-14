@@ -10,7 +10,7 @@ var claw
 func _process(_delta):
 	if move_gold:
 		if claw.global_rotation >= 0.5:
-			#print("left")
+			print("left")
 			global_position.x = claw.global_position.x - 10
 			global_position.y = claw.global_position.y + 25
 			
@@ -32,7 +32,6 @@ func _process(_delta):
 			receivedGold.play()
 			# Stop script until sound is completed
 			await receivedGold.finished
-			
 			queue_free()
 
 func _on_area_entered(area):

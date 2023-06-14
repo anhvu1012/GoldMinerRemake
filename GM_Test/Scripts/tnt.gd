@@ -2,16 +2,6 @@ extends Area2D
 
 var explosionParticle = preload("res://Scenes/TNT_Explosion.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func explode():
 	var _particle = explosionParticle.instantiate()
 	_particle.position = global_position
@@ -29,7 +19,6 @@ func _on_area_entered(area):
 		$Collision_TNT.set_deferred("disabled", true)
 		# play explosion animation
 		explode()
-
 
 func _on_explosion_timer_timeout():
 	queue_free()

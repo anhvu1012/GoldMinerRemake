@@ -7,6 +7,10 @@ var claw_max_depth = 550
 var hook_depth
 var hook_direction = 1
 @export var hook_drop_speed = 500
+@export var hook_drop_speed_BigGold = 200
+@export var hook_drop_speed_NormalGold = 350
+@export var hook_drop_speed_Stone = 250
+
 var rope_position
 var hook_move_down = false
 var hook_move_up = false
@@ -16,6 +20,9 @@ var claw_position
 
 @onready var rope = get_parent().get_parent().get_node("Rope")
 @onready var foundGold = $found_gold_sound
+@onready var foundStone = $found_stone_sound # TODO
+@onready var foundDiamond = $found_diamond_sound # TODO
+
 
 signal hook_move_down_status(is_moving_down: bool)
 
@@ -34,6 +41,9 @@ func _process(delta):
 		move_Rope_Down(delta)
 	check_Claw_out_of_Bound()
 	
+	#reset claw move speed
+	#hook_drop_speed = initial_move_speed
+	
 	if not hook_move_down and hook_move_up:
 		move_Rope_Up(delta)
 
@@ -41,6 +51,7 @@ func _process(delta):
 	
 func check_InPut():
 	if Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_accept"):
+		hook_drop_speed = initial_move_speed # Reset drop speed
 		hook_move_down = true
 		hook_move_down_status.emit(hook_move_down)
 		
@@ -68,12 +79,44 @@ func check_Reach_the_Ground():
 		
 # Function checking for collision
 func _on_area_entered(area):
-	if (area.is_in_group("Gold")):
+	if (area.is_in_group("Big_Gold")):
+		# Speed for Big Gold
+		hook_drop_speed = hook_drop_speed_BigGold
 		hook_move_down = false
 		hook_move_up = true
 		$CollisionShape2D.set_deferred("disabled", true)
 		foundGold.play()
 		print("Found Gold!")
+		
+	elif (area.is_in_group("Normal_Gold")):
+		# Speed for Normal Gold
+		hook_drop_speed = hook_drop_speed_NormalGold
+		hook_move_down = false
+		hook_move_up = true
+		$CollisionShape2D.set_deferred("disabled", true)
+		foundGold.play()
+		print("Found Gold!")
+		
+	elif (area.is_in_group("Small_Gold")):
+		hook_move_down = false
+		hook_move_up = true
+		$CollisionShape2D.set_deferred("disabled", true)
+		foundGold.play()
+		print("Found Gold!")
+		
+	elif (area.is_in_group("Stone")):
+		# Speed for Stone
+		hook_drop_speed = hook_drop_speed_Stone
+		hook_move_down = false
+		hook_move_up = true
+		$CollisionShape2D.set_deferred("disabled", true)
+		foundStone.play() # --- TODO: Add "fail" sound for grabbing stone
+			
+	elif (area.is_in_group("Diamond")):
+		hook_move_down = false
+		hook_move_up = true
+		$CollisionShape2D.set_deferred("disabled", true)
+		foundDiamond.play() # --- TODO: Add "success" sound for grabbing diamond
 		
 	elif (area.is_in_group("TNT")):
 		hook_move_down = false
