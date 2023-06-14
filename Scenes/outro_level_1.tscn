@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ndxuma87kv4u"]
+
+[ext_resource type="Script" path="res://Scripts/outro_level_1.gd" id="1_es1us"]
+[ext_resource type="Texture2D" uid="uid://dl1uaawyx6buf" path="res://Sprites/BG/MadeToNextLevel.jpg" id="2_ehosb"]
+
+[node name="Outro Level 1" type="Node2D"]
+script = ExtResource("1_es1us")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(580.5, 324.5)
+scale = Vector2(1.21444, 1.10562)
+texture = ExtResource("2_ehosb")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

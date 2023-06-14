@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctnaj65bh41nt"]
+
+[ext_resource type="Script" path="res://Scripts/IntroLevel1.gd" id="1_hl1di"]
+[ext_resource type="Texture2D" uid="uid://cin3o3g21yoia" path="res://Sprites/BG/first_goal.jpg" id="2_h4t5g"]
+
+[node name="Intro Level 1" type="Node2D"]
+script = ExtResource("1_hl1di")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(576, 325.5)
+scale = Vector2(1.72024, 1.72222)
+texture = ExtResource("2_h4t5g")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
