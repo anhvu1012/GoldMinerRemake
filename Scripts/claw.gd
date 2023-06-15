@@ -36,7 +36,6 @@ func _ready():
 
 func _process(delta):
 	claw_position = Vector2(position.x, position.y)
-	check_InPut()
 	if hook_move_down:
 		move_Rope_Down(delta)
 	check_Claw_out_of_Bound()
@@ -76,6 +75,7 @@ func check_Reach_the_Ground():
 		$CollisionShape2D.set_deferred("disabled", false)
 		hook_move_up = false
 		hook_move_down_status.emit(hook_move_down) # now start rotate again
+		check_InPut()
 		
 # Function checking for collision
 func _on_area_entered(area):
