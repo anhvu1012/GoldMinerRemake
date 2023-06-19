@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cquhkicfe64it"]
+[gd_scene load_steps=23 format=3 uid="uid://cquhkicfe64it"]
 
 [ext_resource type="Script" path="res://Scripts/Level_Transition.gd" id="1_pp5ft"]
 [ext_resource type="Texture2D" uid="uid://dyw0opn1wokep" path="res://Sprites/BG/Gold Miner - Backgrounds.png" id="1_v3qv2"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dni1ajlkfdevr" path="res://Scenes/tnt.tscn" id="13_5aanf"]
 [ext_resource type="FontFile" uid="uid://dgsdwbgcyr2gf" path="res://dogicapixelbold.ttf" id="13_6t0vr"]
 [ext_resource type="StyleBox" uid="uid://b8cjswdjawi40" path="res://Styling/button.tres" id="14_2xsmd"]
+[ext_resource type="PackedScene" uid="uid://2amkb6e4j4x7" path="res://Scenes/money_bag.tscn" id="14_4leiu"]
 [ext_resource type="StyleBox" uid="uid://2l7nww6tbl2g" path="res://Styling/buttonPressed.tres" id="15_3tceo"]
 [ext_resource type="PackedScene" uid="uid://dsg2aw8fjkk87" path="res://Scenes/pause_menu.tscn" id="16_nya8r"]
 [ext_resource type="Script" path="res://Scripts/MoneyCount.gd" id="17_arx67"]
@@ -123,6 +124,14 @@ position = Vector2(455, 351)
 
 [node name="Small Gold5" parent="Golds" instance=ExtResource("12_q60qn")]
 position = Vector2(363, 306)
+
+[node name="MoneyBags" type="Node2D" parent="."]
+
+[node name="MoneyBag" parent="MoneyBags" instance=ExtResource("14_4leiu")]
+position = Vector2(258, 506)
+
+[node name="MoneyBag2" parent="MoneyBags" instance=ExtResource("14_4leiu")]
+position = Vector2(640, 559)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 

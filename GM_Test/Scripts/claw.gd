@@ -97,7 +97,7 @@ func _on_area_entered(area):
 		foundGold.play()
 		print("Found Gold!")
 		
-	elif (area.is_in_group("Normal_Gold")):
+	elif (area.is_in_group("Normal_Gold") or area.is_in_group("MoneyBag")):
 		# Speed for Normal Gold
 		hook_drop_speed = hook_drop_speed_NormalGold
 		hook_move_down = false

@@ -15,7 +15,6 @@ func _ready():
 func _process(_delta):
 	if move_gold:
 		if claw.global_rotation >= 0.5:
-			print("left")
 			global_position.x = claw.global_position.x - 10
 			global_position.y = claw.global_position.y + 25
 			

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://2amkb6e4j4x7"]
+
+[ext_resource type="Script" path="res://Scripts/money_bag.gd" id="1_n6hlf"]
+[ext_resource type="Texture2D" uid="uid://b7ucde1ic5of4" path="res://icon.svg" id="1_yu6e4"]
+[ext_resource type="AudioStream" uid="uid://dpvlvntdjbf40" path="res://Sounds/received.mp3" id="2_adwyp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hsdm"]
+size = Vector2(38, 38)
+
+[node name="MoneyBag" type="Area2D" groups=["MoneyBag"]]
+script = ExtResource("1_n6hlf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_yu6e4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3hsdm")
+
+[node name="ReceivedGold" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_adwyp")
+volume_db = 1.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
