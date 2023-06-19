@@ -7,6 +7,11 @@ var claw
 
 @onready var receivedGold = $ReceivedGold
 
+func _ready():
+	# -- Check for active Power-Ups --
+	if GameManager.stonks:
+		value_largeGold *= 1.5
+
 func _process(_delta):
 	if move_gold:
 		if claw.global_rotation >= 0.5:

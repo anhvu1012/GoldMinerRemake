@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dni1ajlkfdevr"]
+[gd_scene load_steps=6 format=3 uid="uid://dni1ajlkfdevr"]
 
 [ext_resource type="Script" path="res://Scripts/tnt.gd" id="1_ihycc"]
 [ext_resource type="Texture2D" uid="uid://b7ucde1ic5of4" path="res://icon.svg" id="1_srwrr"]
+[ext_resource type="AudioStream" uid="uid://cnf0msfbxw0yy" path="res://Sounds/explosion.wav" id="3_spl6e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bxcg"]
 size = Vector2(52, 52)
@@ -29,6 +30,10 @@ disabled = true
 
 [node name="ExplosionTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_spl6e")
+volume_db = -5.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="ExplosionTimer" to="." method="_on_explosion_timer_timeout"]

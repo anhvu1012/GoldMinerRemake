@@ -7,6 +7,11 @@ var claw
 
 @onready var receivedDiamond = $ReceivedDiamond
 
+func _ready():
+	# -- Check for active Power-Ups --
+	if GameManager.stonks:
+		value_diamond *= 1.5
+
 func _process(_delta):
 	if move_diamond:
 		if claw.global_rotation >= 0.5:

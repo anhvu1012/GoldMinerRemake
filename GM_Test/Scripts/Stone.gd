@@ -7,6 +7,11 @@ var claw
 
 @onready var receivedStone = $ReceivedStone
 
+func _ready():
+	# -- Check for active Power-Ups --
+	if GameManager.stonks:
+		value_stone *= 1.5
+
 func _process(_delta):
 	if move_stone:
 		if claw.global_rotation >= 0.5:

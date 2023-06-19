@@ -1,0 +1,109 @@
+[gd_scene load_steps=13 format=3 uid="uid://bubvxo4ssoxca"]
+
+[ext_resource type="Script" path="res://Scripts/shop.gd" id="1_7i3mk"]
+[ext_resource type="Texture2D" uid="uid://bsw8v47wxfwry" path="res://Sprites/BG/Shop.png" id="1_dawvv"]
+[ext_resource type="FontFile" uid="uid://dgsdwbgcyr2gf" path="res://dogicapixelbold.ttf" id="2_pg2k5"]
+[ext_resource type="StyleBox" uid="uid://b8cjswdjawi40" path="res://Styling/button.tres" id="3_xcwcu"]
+[ext_resource type="StyleBox" uid="uid://2l7nww6tbl2g" path="res://Styling/buttonPressed.tres" id="4_dgipw"]
+[ext_resource type="Texture2D" uid="uid://2uuacroqm0y4" path="res://Sprites/Item/Drink.png" id="6_jv3wg"]
+[ext_resource type="Script" path="res://Scripts/MoneyCount.gd" id="7_a2mos"]
+[ext_resource type="Texture2D" uid="uid://df30k0gqs2c1f" path="res://Sprites/Item/Stonks.png" id="7_ivwjo"]
+[ext_resource type="AudioStream" uid="uid://c1nlw06pfn1s1" path="res://Sounds/ByingItems.mp3" id="8_yt3qi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mw8m7"]
+size = Vector2(61, 83.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j6t36"]
+font_size = 32
+font_color = Color(3.56168e-06, 0.615319, 1.73271e-06, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7x2k"]
+size = Vector2(98, 79)
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_7i3mk")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(576, 324.5)
+scale = Vector2(1.35059, 1.3004)
+texture = ExtResource("1_dawvv")
+
+[node name="Skip Level" type="Button" parent="."]
+offset_left = 796.0
+offset_top = 82.0
+offset_right = 940.0
+offset_bottom = 106.0
+scale = Vector2(1.183, 2.06974)
+theme_override_fonts/font = ExtResource("2_pg2k5")
+theme_override_font_sizes/font_size = 0
+theme_override_styles/normal = ExtResource("3_xcwcu")
+theme_override_styles/hover = ExtResource("3_xcwcu")
+theme_override_styles/pressed = ExtResource("4_dgipw")
+theme_override_styles/focus = ExtResource("3_xcwcu")
+text = "Next Level
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="EnergyDrink_Area" type="Area2D" parent="Items"]
+
+[node name="Energy_CollisionShape2D" type="CollisionShape2D" parent="Items/EnergyDrink_Area"]
+position = Vector2(456, 414)
+shape = SubResource("RectangleShape2D_mw8m7")
+
+[node name="EnergySprite" type="Sprite2D" parent="Items/EnergyDrink_Area"]
+texture_filter = 1
+position = Vector2(454, 413)
+scale = Vector2(4.8125, 4.67391)
+texture = ExtResource("6_jv3wg")
+
+[node name="Energy_Label" type="Label" parent="Items/EnergyDrink_Area"]
+offset_left = 422.0
+offset_top = 457.0
+offset_right = 494.0
+offset_bottom = 504.0
+text = "$150"
+label_settings = SubResource("LabelSettings_j6t36")
+horizontal_alignment = 1
+
+[node name="Stonks_Area" type="Area2D" parent="Items"]
+
+[node name="Stonks_CollisionShape2D" type="CollisionShape2D" parent="Items/Stonks_Area"]
+position = Vector2(587, 412.5)
+shape = SubResource("RectangleShape2D_u7x2k")
+
+[node name="StonksSprite" type="Sprite2D" parent="Items/Stonks_Area"]
+texture_filter = 1
+position = Vector2(587, 412)
+scale = Vector2(0.0842309, 0.0821794)
+texture = ExtResource("7_ivwjo")
+
+[node name="Stonks_Label" type="Label" parent="Items/Stonks_Area"]
+offset_left = 552.0
+offset_top = 457.0
+offset_right = 624.0
+offset_bottom = 505.0
+text = "$400"
+label_settings = SubResource("LabelSettings_j6t36")
+horizontal_alignment = 1
+
+[node name="VBoxContainerLeft" type="VBoxContainer" parent="."]
+offset_left = 144.0
+offset_top = 48.0
+offset_right = 184.0
+offset_bottom = 88.0
+
+[node name="MoneyLabel" type="Label" parent="VBoxContainerLeft"]
+self_modulate = Color(0.239216, 0.2, 0.2, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pg2k5")
+script = ExtResource("7_a2mos")
+metadata/_edit_use_anchors_ = true
+
+[node name="BuyingItems" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_yt3qi")
+
+[connection signal="pressed" from="Skip Level" to="." method="_on_skip_level_pressed"]
+[connection signal="input_event" from="Items/EnergyDrink_Area" to="." method="_on_energy_drink_input_event"]
+[connection signal="input_event" from="Items/Stonks_Area" to="." method="_on_stonks_area_input_event"]

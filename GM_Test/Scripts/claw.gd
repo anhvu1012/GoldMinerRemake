@@ -28,6 +28,14 @@ signal hook_move_down_status(is_moving_down: bool)
 
 # called when start
 func _ready():
+	# -- Check for active Power-Ups --
+	if GameManager.energy_drink:
+		print("Energy Drink activated")
+		hook_drop_speed += 200
+		hook_drop_speed_BigGold += 200
+		hook_drop_speed_NormalGold += 200
+		hook_drop_speed_Stone += 200
+		
 	rope_position = rope.position
 	#print(rope_position)
 	initial_move_speed = hook_drop_speed
@@ -36,7 +44,7 @@ func _ready():
 
 func _process(delta):
 	claw_position = Vector2(position.x, position.y)
-	check_InPut()
+	#check_InPut()
 	if hook_move_down:
 		move_Rope_Down(delta)
 	check_Claw_out_of_Bound()
@@ -76,6 +84,7 @@ func check_Reach_the_Ground():
 		$CollisionShape2D.set_deferred("disabled", false)
 		hook_move_up = false
 		hook_move_down_status.emit(hook_move_down) # now start rotate again
+		check_InPut()
 		
 # Function checking for collision
 func _on_area_entered(area):

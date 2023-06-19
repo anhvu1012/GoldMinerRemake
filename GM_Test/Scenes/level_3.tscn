@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cagegdtac6p23"]
+
+[ext_resource type="Texture2D" uid="uid://dyw0opn1wokep" path="res://Sprites/BG/Gold Miner - Backgrounds.png" id="1_s678w"]
+[ext_resource type="Texture2D" uid="uid://7gd4xae7kr57" path="res://Sprites/BG/level_meme.png" id="2_6q1sr"]
+
+[node name="Level 3" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(580, 324)
+scale = Vector2(2.08633, 1.91716)
+texture = ExtResource("1_s678w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(590, 327)
+scale = Vector2(0.775747, 0.639141)
+texture = ExtResource("2_6q1sr")

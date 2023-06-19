@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csxtq070x718t"
-path="res://.godot/imported/Browser Games - Gold Miner - Backgrounds - Kopie.png-7174700939f216aa31b084143d817333.ctex"
+uid="uid://cb1logjq8slp1"
+path="res://.godot/imported/GoalNotReached.png-647c58b31ecc2764492c12f63c2d9a96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/BG/Browser Games - Gold Miner - Backgrounds - Kopie.png"
-dest_files=["res://.godot/imported/Browser Games - Gold Miner - Backgrounds - Kopie.png-7174700939f216aa31b084143d817333.ctex"]
+source_file="res://Sprites/BG/GoalNotReached.png"
+dest_files=["res://.godot/imported/GoalNotReached.png-647c58b31ecc2764492c12f63c2d9a96.ctex"]
 
 [params]
 

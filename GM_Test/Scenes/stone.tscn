@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://crwi1o1sjv1p8"]
+[gd_scene load_steps=5 format=3 uid="uid://bf8an6ps50gf3"]
 
 [ext_resource type="Script" path="res://Scripts/Stone.gd" id="1_kg2ni"]
 [ext_resource type="Texture2D" uid="uid://b7ucde1ic5of4" path="res://icon.svg" id="2_lv0jg"]
-[ext_resource type="AudioStream" uid="uid://dpvlvntdjbf40" path="res://Sounds/received.mp3" id="3_4tpy5"]
+[ext_resource type="AudioStream" uid="uid://dpvlvntdjbf40" path="res://Sounds/received.mp3" id="3_qtd1d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mcn2g"]
 size = Vector2(50, 50)
@@ -19,6 +19,7 @@ texture = ExtResource("2_lv0jg")
 shape = SubResource("RectangleShape2D_mcn2g")
 
 [node name="ReceivedStone" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_4tpy5")
+stream = ExtResource("3_qtd1d")
+volume_db = 1.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

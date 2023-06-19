@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb7gcv44h1r7i"]
+
+[ext_resource type="Script" path="res://Scripts/Intro_Level_2.gd" id="1_d7e12"]
+[ext_resource type="Texture2D" uid="uid://cyk3pfalh5pnc" path="res://Sprites/BG/next_goal.png" id="2_r1s08"]
+
+[node name="Intro Level 2" type="Node2D"]
+script = ExtResource("1_d7e12")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(576, 322.5)
+scale = Vector2(1.39782, 1.32582)
+texture = ExtResource("2_r1s08")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -8,6 +8,7 @@ func explode():
 	_particle.rotation = global_rotation
 	_particle.emitting = true
 	get_tree().current_scene.add_child(_particle)
+	$Explosion.play()
 
 func _on_area_entered(area):
 	if (area.is_in_group("Claw")):
