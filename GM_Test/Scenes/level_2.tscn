@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://5gmnq5ms1yfv"]
+[gd_scene load_steps=23 format=3 uid="uid://cc138e8l2q7l7"]
 
 [ext_resource type="Script" path="res://Scripts/Level_Transition.gd" id="1_d73g1"]
 [ext_resource type="Texture2D" uid="uid://dyw0opn1wokep" path="res://Sprites/BG/Gold Miner - Backgrounds.png" id="1_jovbi"]
@@ -51,16 +51,19 @@ script = ExtResource("5_lvbhh")
 first_target = NodePath("..")
 second_target = NodePath("../Claw")
 
-[node name="Claw" parent="Rope" groups=["Claw"] instance=ExtResource("6_w47ky")]
+[node name="Claw" parent="Rope" instance=ExtResource("6_w47ky")]
 scale = Vector2(1, 0.832062)
 
 [node name="TNTs" type="Node2D" parent="."]
 
 [node name="TNT" parent="TNTs" instance=ExtResource("7_4urx6")]
-position = Vector2(787, 358)
+position = Vector2(605, 418)
 
 [node name="TNT2" parent="TNTs" instance=ExtResource("7_4urx6")]
 position = Vector2(321, 450)
+
+[node name="TNT3" parent="TNTs" instance=ExtResource("7_4urx6")]
+position = Vector2(915, 467)
 
 [node name="Stones" type="Node2D" parent="."]
 
@@ -68,7 +71,7 @@ position = Vector2(321, 450)
 position = Vector2(807, 486)
 
 [node name="Stone2" parent="Stones" instance=ExtResource("8_1xpyo")]
-position = Vector2(622, 444)
+position = Vector2(700, 416)
 
 [node name="Stone3" parent="Stones" instance=ExtResource("8_1xpyo")]
 position = Vector2(209, 382)
@@ -76,10 +79,10 @@ position = Vector2(209, 382)
 [node name="Diamonds" type="Node2D" parent="."]
 
 [node name="Diamond" parent="Diamonds" instance=ExtResource("9_u8xtt")]
-position = Vector2(369, 415)
+position = Vector2(355, 444)
 
 [node name="Diamond2" parent="Diamonds" instance=ExtResource("9_u8xtt")]
-position = Vector2(762, 427)
+position = Vector2(742, 481)
 
 [node name="Golds" type="Node2D" parent="."]
 
@@ -87,13 +90,13 @@ position = Vector2(762, 427)
 position = Vector2(143, 540)
 
 [node name="Big Gold2" parent="Golds" instance=ExtResource("10_0ytdb")]
-position = Vector2(878, 504)
+position = Vector2(893, 538)
 
 [node name="Big Gold3" parent="Golds" instance=ExtResource("10_0ytdb")]
 position = Vector2(673, 516)
 
 [node name="Big Gold4" parent="Golds" instance=ExtResource("10_0ytdb")]
-position = Vector2(923, 421)
+position = Vector2(990, 444)
 
 [node name="Big Gold5" parent="Golds" instance=ExtResource("10_0ytdb")]
 position = Vector2(410, 567)
@@ -125,13 +128,16 @@ position = Vector2(578, 479)
 [node name="Small Gold5" parent="Golds" instance=ExtResource("12_e0frq")]
 position = Vector2(257, 337)
 
+[node name="Small Gold6" parent="Golds" instance=ExtResource("12_e0frq")]
+position = Vector2(417, 343)
+
 [node name="MoneyBags" type="Node2D" parent="."]
 
 [node name="MoneyBag" parent="MoneyBags" instance=ExtResource("14_ootwe")]
 position = Vector2(756, 550)
 
 [node name="MoneyBag2" parent="MoneyBags" instance=ExtResource("14_ootwe")]
-position = Vector2(321, 533)
+position = Vector2(282, 507)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -214,6 +220,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Pause_Menu" parent="CanvasLayer2" instance=ExtResource("20_6kyt4")]
 metadata/_edit_use_anchors_ = true
 
+[connection signal="toggle_game_paused" from="." to="CanvasLayer2/Pause_Menu" method="_on_level_2_toggle_game_paused"]
 [connection signal="hook_move_down_status" from="Rope/Claw" to="Rope" method="_on_claw_hook_move_down_status"]
 [connection signal="timeout" from="CanvasLayer2/VBoxContainerRight/Control/Timer" to="CanvasLayer2/VBoxContainerRight/Control" method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer2/Pause" to="." method="_on_pause_pressed"]

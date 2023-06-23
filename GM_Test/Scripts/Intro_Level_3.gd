@@ -5,4 +5,7 @@ func _ready():
 	$Timer.start()
 
 func _on_timer_timeout():
-	get_tree().change_scene_to_file("res://Scenes/level_3.tscn")
+	# reset variables
+	GameManager.money = 0
+	GameManager.current_level = 1
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")

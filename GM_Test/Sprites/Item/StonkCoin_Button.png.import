@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyk3pfalh5pnc"
-path="res://.godot/imported/next_goal.png-f70750b37d7ec9ca9e9ce41c096810f6.ctex"
+uid="uid://chenl2getxr8f"
+path="res://.godot/imported/StonkCoin_Button.png-25d16fb40dabd0cb2ba07cf641dd478f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/BG/next_goal.png"
-dest_files=["res://.godot/imported/next_goal.png-f70750b37d7ec9ca9e9ce41c096810f6.ctex"]
+source_file="res://Sprites/Item/StonkCoin_Button.png"
+dest_files=["res://.godot/imported/StonkCoin_Button.png-25d16fb40dabd0cb2ba07cf641dd478f.ctex"]
 
 [params]
 

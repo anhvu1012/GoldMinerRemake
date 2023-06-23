@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cquhkicfe64it"]
+[gd_scene load_steps=24 format=3 uid="uid://dcqu1mh5ah3j5"]
 
 [ext_resource type="Script" path="res://Scripts/Level_Transition.gd" id="1_pp5ft"]
 [ext_resource type="Texture2D" uid="uid://dyw0opn1wokep" path="res://Sprites/BG/Gold Miner - Backgrounds.png" id="1_v3qv2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://pd3hwwbtnkr5" path="res://Scenes/rope.tscn" id="7_bf4gi"]
 [ext_resource type="Script" path="res://Scripts/LineRope.gd" id="8_ltsal"]
 [ext_resource type="PackedScene" uid="uid://djmjynnpljydo" path="res://Scenes/claw.tscn" id="9_iuth2"]
+[ext_resource type="PackedScene" uid="uid://dpk7834yn8pi5" path="res://Scenes/small_stone.tscn" id="10_2ikcc"]
 [ext_resource type="PackedScene" uid="uid://b1x2ujuk78fm6" path="res://Scenes/big_gold.tscn" id="10_ch4vu"]
 [ext_resource type="PackedScene" uid="uid://b4ilv3c82x7gj" path="res://Scenes/normal_gold.tscn" id="11_0nkuq"]
 [ext_resource type="PackedScene" uid="uid://bf8an6ps50gf3" path="res://Scenes/stone.tscn" id="11_s6faa"]
@@ -32,8 +33,8 @@ scale = Vector2(2.08633, 1.91716)
 texture = ExtResource("1_v3qv2")
 
 [node name="Character" type="Sprite2D" parent="."]
-position = Vector2(627, 127)
-scale = Vector2(1.26364, 1.34615)
+position = Vector2(626.877, 126.644)
+scale = Vector2(1.26695, 1.35349)
 texture = ExtResource("5_iwx55")
 
 [node name="Clawbody" type="Sprite2D" parent="."]
@@ -51,7 +52,7 @@ script = ExtResource("8_ltsal")
 first_target = NodePath("..")
 second_target = NodePath("../Claw")
 
-[node name="Claw" parent="Rope" groups=["Claw"] instance=ExtResource("9_iuth2")]
+[node name="Claw" parent="Rope" instance=ExtResource("9_iuth2")]
 scale = Vector2(1, 0.832062)
 
 [node name="TNTs" type="Node2D" parent="."]
@@ -60,7 +61,7 @@ scale = Vector2(1, 0.832062)
 position = Vector2(552, 418)
 
 [node name="TNT2" parent="TNTs" instance=ExtResource("13_5aanf")]
-position = Vector2(343, 523)
+position = Vector2(351, 515)
 
 [node name="Stones" type="Node2D" parent="."]
 
@@ -71,7 +72,13 @@ position = Vector2(797, 351)
 position = Vector2(725, 463)
 
 [node name="Stone3" parent="Stones" instance=ExtResource("11_s6faa")]
-position = Vector2(297, 345)
+position = Vector2(293, 336)
+
+[node name="Small Stone" parent="Stones" instance=ExtResource("10_2ikcc")]
+position = Vector2(361, 370)
+
+[node name="Small Stone2" parent="Stones" instance=ExtResource("10_2ikcc")]
+position = Vector2(621, 424)
 
 [node name="Diamonds" type="Node2D" parent="."]
 
@@ -84,7 +91,7 @@ position = Vector2(877, 498)
 [node name="Golds" type="Node2D" parent="."]
 
 [node name="Big Gold" parent="Golds" instance=ExtResource("10_ch4vu")]
-position = Vector2(221, 434)
+position = Vector2(286, 528)
 
 [node name="Big Gold2" parent="Golds" instance=ExtResource("10_ch4vu")]
 position = Vector2(1002, 557)
@@ -105,30 +112,30 @@ position = Vector2(140, 543)
 position = Vector2(848, 326)
 
 [node name="Normal Gold2" parent="Golds" instance=ExtResource("11_0nkuq")]
-position = Vector2(474, 421)
+position = Vector2(499, 417)
 
 [node name="Normal Gold3" parent="Golds" instance=ExtResource("11_0nkuq")]
 position = Vector2(135, 433)
 
 [node name="Normal Gold4" parent="Golds" instance=ExtResource("11_0nkuq")]
-position = Vector2(556, 493)
+position = Vector2(587, 386)
 
 [node name="Small Gold" parent="Golds" instance=ExtResource("12_q60qn")]
-position = Vector2(192, 363)
+position = Vector2(249, 316)
 
 [node name="Small Gold2" parent="Golds" instance=ExtResource("12_q60qn")]
-position = Vector2(676, 491)
+position = Vector2(677, 483)
 
 [node name="Small Gold4" parent="Golds" instance=ExtResource("12_q60qn")]
 position = Vector2(455, 351)
 
 [node name="Small Gold5" parent="Golds" instance=ExtResource("12_q60qn")]
-position = Vector2(363, 306)
+position = Vector2(344, 336)
 
 [node name="MoneyBags" type="Node2D" parent="."]
 
 [node name="MoneyBag" parent="MoneyBags" instance=ExtResource("14_4leiu")]
-position = Vector2(258, 506)
+position = Vector2(196, 475)
 
 [node name="MoneyBag2" parent="MoneyBags" instance=ExtResource("14_4leiu")]
 position = Vector2(640, 559)

@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnrr0c300inc3"]
 
 [ext_resource type="Script" path="res://Scripts/Intro_Level_3.gd" id="1_2o5hh"]
-[ext_resource type="Texture2D" uid="uid://7gd4xae7kr57" path="res://Sprites/BG/level_meme.png" id="2_qd67m"]
+[ext_resource type="Texture2D" uid="uid://dw6fulrwygxgd" path="res://Sprites/BG/Coming_soon.png" id="2_2s0dk"]
 
 [node name="Intro Level 3" type="Node2D"]
 script = ExtResource("1_2o5hh")
 
 [node name="BG" type="Sprite2D" parent="."]
-position = Vector2(591, 312)
-scale = Vector2(0.709337, 0.651194)
-texture = ExtResource("2_qd67m")
+position = Vector2(577, 325)
+scale = Vector2(2.07914, 1.92899)
+texture = ExtResource("2_2s0dk")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

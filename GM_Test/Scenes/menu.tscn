@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://smhhle2u4j7u"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_p551n"]
-[ext_resource type="Texture2D" uid="uid://ca1a5tdes81ar" path="res://Sprites/BG/Gold Miner - Titel.png" id="2_cej5u"]
+[ext_resource type="Texture2D" uid="uid://ryfyam6qskff" path="res://Sprites/BG/TitelScreen contrast dark mountain.png" id="2_jmwko"]
 [ext_resource type="FontFile" uid="uid://dgsdwbgcyr2gf" path="res://dogicapixelbold.ttf" id="3_7lxld"]
 [ext_resource type="StyleBox" uid="uid://b8cjswdjawi40" path="res://Styling/button.tres" id="4_manre"]
 [ext_resource type="StyleBox" uid="uid://2l7nww6tbl2g" path="res://Styling/buttonPressed.tres" id="5_cmkmp"]
@@ -25,7 +25,7 @@ script = ExtResource("1_p551n")
 [node name="BG" type="Sprite2D" parent="."]
 position = Vector2(580, 324)
 scale = Vector2(2.08633, 1.91716)
-texture = ExtResource("2_cej5u")
+texture = ExtResource("2_jmwko")
 
 [node name="Play" type="Button" parent="."]
 layout_mode = 1
@@ -33,10 +33,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 92.0
-offset_top = 57.0
-offset_right = 288.0
-offset_bottom = 119.0
+offset_left = 88.0
+offset_top = 211.0
+offset_right = 284.0
+offset_bottom = 273.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_7lxld")
@@ -48,15 +48,16 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_cqpp3")
 text = "PLAY"
 
 [node name="Options" type="Button" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 92.0
-offset_top = 184.0
-offset_right = 288.0
-offset_bottom = 246.0
+offset_left = 88.0
+offset_top = 224.0
+offset_right = 284.0
+offset_bottom = 286.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_7lxld")
@@ -73,10 +74,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 92.0
-offset_top = 310.0
-offset_right = 288.0
-offset_bottom = 372.0
+offset_left = 89.0
+offset_top = 306.0
+offset_right = 285.0
+offset_bottom = 368.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_7lxld")

@@ -10,7 +10,9 @@ var claw
 func _ready():
 	# -- Check for active Power-Ups --
 	if GameManager.stonks:
-		value_moneyBag *= 1.5
+		value_moneyBag[0] *= 1.5
+		value_moneyBag[1] *= 1.5
+		value_moneyBag[2] *= 1.5
 
 func _process(_delta):
 	if move_gold:
@@ -46,7 +48,7 @@ func _on_area_entered(area):
 	if (area.is_in_group("Claw")):
 		move_gold = true
 		claw = area
-		$CollisionShape2D.set_deferred("disabled", true)
+		$CollisionPolygon2D.set_deferred("disabled", true)
 		
 	elif (area.is_in_group("TNT_Explosion")):
 		queue_free()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca1a5tdes81ar"
-path="res://.godot/imported/Gold Miner - Titel.png-e212e02961906520b97ad40220e99e0c.ctex"
+uid="uid://ds5eu8oenst0i"
+path="res://.godot/imported/ShopScrenn light green bg.png-fd17d3ae56149dcdbdcacf59008c9b46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/BG/Gold Miner - Titel.png"
-dest_files=["res://.godot/imported/Gold Miner - Titel.png-e212e02961906520b97ad40220e99e0c.ctex"]
+source_file="res://Sprites/BG/ShopScrenn light green bg.png"
+dest_files=["res://.godot/imported/ShopScrenn light green bg.png-fd17d3ae56149dcdbdcacf59008c9b46.ctex"]
 
 [params]
 

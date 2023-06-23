@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://03uary2rorhy"]
 
 [ext_resource type="Script" path="res://Scripts/goal_not_reached.gd" id="1_t8jie"]
-[ext_resource type="Texture2D" uid="uid://cb1logjq8slp1" path="res://Sprites/BG/GoalNotReached.png" id="2_6lm6r"]
+[ext_resource type="Texture2D" uid="uid://cugxsr1h5xx7m" path="res://Sprites/BG/GoldNotReachedVer1.png" id="2_dwpm6"]
 
 [node name="Goal Not Reached" type="Node2D"]
 script = ExtResource("1_t8jie")
 
 [node name="BG" type="Sprite2D" parent="."]
-position = Vector2(576, 324.5)
-scale = Vector2(1.35059, 1.3004)
-texture = ExtResource("2_6lm6r")
+position = Vector2(578, 325)
+scale = Vector2(2.07914, 1.92308)
+texture = ExtResource("2_dwpm6")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

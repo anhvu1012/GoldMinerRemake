@@ -13,7 +13,7 @@ func _on_skip_level_pressed():
 		get_tree().change_scene_to_file("res://Scenes/intro_level_3.tscn")
 
 
-func _on_energy_drink_input_event(viewport, event, shape_idx):
+func _on_energy_drink_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1:
 		if GameManager.money >= price_energy:
 			GameManager.energy_drink = true
@@ -23,7 +23,7 @@ func _on_energy_drink_input_event(viewport, event, shape_idx):
 			$Items/EnergyDrink_Area/Energy_CollisionShape2D.disabled = true
 			$BuyingItems.play()
 
-func _on_stonks_area_input_event(viewport, event, shape_idx):
+func _on_stonks_area_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1:
 		if GameManager.money >= price_stonks:
 			GameManager.stonks = true

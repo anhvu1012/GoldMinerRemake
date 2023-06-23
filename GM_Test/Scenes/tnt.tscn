@@ -1,24 +1,26 @@
 [gd_scene load_steps=6 format=3 uid="uid://dni1ajlkfdevr"]
 
 [ext_resource type="Script" path="res://Scripts/tnt.gd" id="1_ihycc"]
-[ext_resource type="Texture2D" uid="uid://b7ucde1ic5of4" path="res://icon.svg" id="1_srwrr"]
+[ext_resource type="Texture2D" uid="uid://d2gtsk0s168gr" path="res://Sprites/Item/bomb-TNT.png" id="2_chklk"]
 [ext_resource type="AudioStream" uid="uid://cnf0msfbxw0yy" path="res://Sounds/explosion.wav" id="3_spl6e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bxcg"]
-size = Vector2(52, 52)
+size = Vector2(25, 27)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g0jr5"]
-radius = 100.0
+radius = 69.0
 
 [node name="TNT" type="Area2D" groups=["TNT"]]
 script = ExtResource("1_ihycc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.968627, 0, 0, 1)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_srwrr")
+position = Vector2(-2.5, -2)
+scale = Vector2(0.574074, 0.581818)
+texture = ExtResource("2_chklk")
 
 [node name="Collision_TNT" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_3bxcg")
 
 [node name="ExplosionHitbox" type="Area2D" parent="." groups=["TNT_Explosion"]]

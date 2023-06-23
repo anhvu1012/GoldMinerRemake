@@ -15,6 +15,16 @@ func _on_quit_pressed():
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 	get_tree().paused = false
 
+func _on_level_2_toggle_game_paused(is_paused):
+	if is_paused:
+		show()
+		get_tree().paused = true
+		
+	else: 
+		hide()
+		get_tree().paused = false
+
+
 func _on_level_1_toggle_game_paused(is_paused):
 	if is_paused:
 		show()

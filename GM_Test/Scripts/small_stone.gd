@@ -15,18 +15,18 @@ func _ready():
 func _process(_delta):
 	if move_stone:
 		if claw.global_rotation >= 0.5:
-			global_position.x = claw.global_position.x - 25
-			global_position.y = claw.global_position.y + 25
+			global_position.x = claw.global_position.x - 15
+			global_position.y = claw.global_position.y + 15
 			
 		# --- Adjust position for Stone on the Right
 		elif claw.global_rotation <= -0.5:
-			global_position.x = claw.global_position.x + 25
-			global_position.y = claw.global_position.y + 25
+			global_position.x = claw.global_position.x + 15
+			global_position.y = claw.global_position.y + 15
 			
 		# --- Normal Position for Stone in middle area
 		else:
 			global_position.x = claw.global_position.x
-			global_position.y = claw.global_position.y + 35
+			global_position.y = claw.global_position.y + 30
 		
 		if global_position.y <= 210:
 			move_stone = false

@@ -9,7 +9,7 @@ var hook_direction = 1
 @export var hook_drop_speed = 500
 @export var hook_drop_speed_BigGold = 200
 @export var hook_drop_speed_NormalGold = 350
-@export var hook_drop_speed_Stone = 250
+@export var hook_drop_speed_Stone = 225
 
 var rope_position
 var hook_move_down = false
@@ -97,7 +97,7 @@ func _on_area_entered(area):
 		foundGold.play()
 		print("Found Gold!")
 		
-	elif (area.is_in_group("Normal_Gold") or area.is_in_group("MoneyBag")):
+	elif (area.is_in_group("Normal_Gold")):
 		# Speed for Normal Gold
 		hook_drop_speed = hook_drop_speed_NormalGold
 		hook_move_down = false
@@ -113,7 +113,7 @@ func _on_area_entered(area):
 		foundGold.play()
 		print("Found Gold!")
 		
-	elif (area.is_in_group("Stone")):
+	elif (area.is_in_group("Stone") or area.is_in_group("MoneyBag")):
 		# Speed for Stone
 		hook_drop_speed = hook_drop_speed_Stone
 		hook_move_down = false

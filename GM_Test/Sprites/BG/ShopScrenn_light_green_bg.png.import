@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cin3o3g21yoia"
-path="res://.godot/imported/first_goal.jpg-06ee312cc4f2f912ba6b4ba00307a614.ctex"
+uid="uid://ddaulhq7oup66"
+path="res://.godot/imported/ShopScrenn_light_green_bg.png-9533f254adddb1d26ea89cef22b5358e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/BG/first_goal.jpg"
-dest_files=["res://.godot/imported/first_goal.jpg-06ee312cc4f2f912ba6b4ba00307a614.ctex"]
+source_file="res://Sprites/BG/ShopScrenn_light_green_bg.png"
+dest_files=["res://.godot/imported/ShopScrenn_light_green_bg.png-9533f254adddb1d26ea89cef22b5358e.ctex"]
 
 [params]
 

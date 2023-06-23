@@ -1,21 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://2amkb6e4j4x7"]
+[gd_scene load_steps=4 format=3 uid="uid://2amkb6e4j4x7"]
 
 [ext_resource type="Script" path="res://Scripts/money_bag.gd" id="1_n6hlf"]
-[ext_resource type="Texture2D" uid="uid://b7ucde1ic5of4" path="res://icon.svg" id="1_yu6e4"]
 [ext_resource type="AudioStream" uid="uid://dpvlvntdjbf40" path="res://Sounds/received.mp3" id="2_adwyp"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hsdm"]
-size = Vector2(38, 38)
+[ext_resource type="Texture2D" uid="uid://bnjgsy0g516x3" path="res://Sprites/Item/bag.png" id="2_urt81"]
 
 [node name="MoneyBag" type="Area2D" groups=["MoneyBag"]]
 script = ExtResource("1_n6hlf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_yu6e4")
+position = Vector2(0, 1.43051e-06)
+scale = Vector2(1.25926, 1.41667)
+texture = ExtResource("2_urt81")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_3hsdm")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 1.43051e-06)
+scale = Vector2(1.25926, 1.41667)
+polygon = PackedVector2Array(4.76471, -6.35294, 8.73529, -4.2353, 13.5, 0.705881, 13.5, 5.64706, 6.35294, 12, -7.14706, 11.2941, -10.3235, 7.76471, -9.52941, 1.41176, -13.5, -4.2353, -10.3235, -7.05883, -7.94118, -8.47059, -2.38235, -8.47059)
 
 [node name="ReceivedGold" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_adwyp")
